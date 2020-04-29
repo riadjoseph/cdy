@@ -1,0 +1,243 @@
+{
+  "settings": {
+    "currentPage": "index.html",
+    "theme": {
+      "name": "brandamp",
+      "title": "BrandAMP",
+      "styling": {
+        "primaryColor": "#000fff",
+        "secondaryColor": "#ca4336",
+        "successColor": "#365c9a",
+        "infoColor": "#e96188",
+        "warningColor": "#fac769",
+        "dangerColor": "#b2ccd2",
+        "mainFont": "Work Sans",
+        "display1Font": "Work Sans",
+        "display1Size": 6.6,
+        "display2Font": "Work Sans",
+        "display2Size": 4,
+        "display5Font": "Work Sans",
+        "display5Size": 1.7,
+        "display7Font": "Karla",
+        "display7Size": 1.2,
+        "display4Font": "Karla",
+        "display4Size": 0.9,
+        "display6Font": "Work Sans",
+        "display6Size": 1.1,
+        "isRoundedButtons": false,
+        "isScrollToTopButton": false,
+        "arrowColor": "#000fff"
+      },
+      "titlePreset": "Smart Watch",
+      "nameSelectPreset": "smart",
+      "additionalSetColors": []
+    },
+    "path": "@PROJECT_PATH@",
+    "name": "Caro de Yoga",
+    "versionFirst": "4.11.6",
+    "siteFonts": [
+      {
+        "css": "'Work Sans', sans-serif",
+        "name": "Work Sans",
+        "url": "https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i"
+      },
+      {
+        "css": "'Karla', sans-serif",
+        "name": "Karla",
+        "url": "https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i"
+      }
+    ],
+    "favicon": "@PROJECT_PATH@/assets/images/caro-de-yoga-128x128.png",
+    "noImageResize": true,
+    "cssOptimize": true,
+    "robotsSwitcher": true,
+    "robotsText": "User-agent: *\nDisallow: /\n",
+    "canonical-url": "https://carode.yoga",
+    "sitemapSwitcher": false,
+    "sitemapSwitcherAuto": false,
+    "siteUrl": false,
+    "cookiesAlert": false,
+    "gdpr": false,
+    "pwa-switcher": false,
+    "uniqCompNum": 5,
+    "versionPublish": "4.11.6",
+    "screenshot": "screenshot.png"
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "Caro de Yoga",
+        "meta_descr": "Coming soon placeholder and contact form",
+        "header_custom": "<meta name=\"robots\" content=\"noindex\"",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "& when not (@fullScreen)": {
+              "padding-top": "(@paddingTop * 1rem)",
+              "padding-bottom": "(@paddingBottom * 1rem)"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              "& when (@overlay)": {
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              }
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".mbr-section-subtitle, .mbr-section-btn": {
+              "color": "#efefef"
+            }
+          },
+          "_name": "header01",
+          "_customHTML": "<section class=\"header1\" group=\"Headers\" mbr-class=\"{'mbr-fullscreen': fullScreen}\" plugins=\"amp-main\">\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n    <header>Size</header>\n    <input type=\"checkbox\" title=\"Full Screen\" name=\"fullScreen\" checked>\n    <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n    <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"15\" step=\"1\" value=\"10\" condition=\"fullScreen == false\">\n    <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"15\" step=\"1\" value=\"10\" condition=\"fullScreen == false\">\n    <input type=\"checkbox\" name=\"halfSize\" title=\"Half Size\">\n    <select title=\"Align\" name=\"alignHalf\" condition=\"halfSize\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected>Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <header>Show/Hide</header>\n    <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n    <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked>\n    <input type=\"checkbox\" title=\"Text\" name=\"showText\" checked>\n    <input type=\"checkbox\" title=\"Buttons\" name=\"showButtons\">\n    <select title=\"Align\" name=\"alignTitle\" condition=\"showTitle || showSubtitle || showText || showButtons\">\n        <option value=\"1\">Left</option>\n        <option value=\"2\" selected>Center</option>\n        <option value=\"3\">Right</option>\n    </select>\n    <header>Background</header>\n    <fieldset type=\"background\" name=\"bg\" required>\n        <input type=\"image\" title=\"Background Image\" value=\"@PROJECT_PATH@/assets/images/dsc-7853-copy-2000x1328.jpg\" selected>\n        <input type=\"color\" title=\"Background Color\" value=\"#000fff\">\n    </fieldset>\n    <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n    <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n    <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.2\" condition=\"overlay && bg.type !== 'color'\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div mbr-class=\"{'container':!fullWidth,\n                     'container-fluid': fullWidth}\">\n        <div class=\"mbr-row\" mbr-class=\"{'align-left': alignTitle==1,\n                        'align-center': alignTitle==2,\n                        'align-right': alignTitle==3,\n                        'mbr-jc-c':alignHalf==2,\n                        'mbr-jc-e':alignHalf==3}\" mbr-if=\"showTitle || showSubtitle || showText || showButtons\">\n            <div class=\"title-block mbr-col-sm-12 mbr-col-md-12\" mbr-class=\"{'mbr-col-lg-8': halfSize,\n                             'mbr-col-lg-12': !halfSize}\">\n                <h1 class=\"mbr-section-title mbr-fonts-style mbr-white mbr-bold\" mbr-theme-style=\"display-1\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title, .mbr-section-btn\">CaroDe.Yoga</h1>\n                <h2 class=\"mbr-section-subtitle mbr-fonts-style mbr-white\" mbr-class=\"{'mbr-pt-3': showTitle}\" mbr-theme-style=\"display-2\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle, .mbr-section-btn\">Check my latest \"confinement-special\" <a href=\"index.html#video01-2\" class=\"text-info\">yoga at home video</a><br></h2>\n                <p class=\"mbr-text mbr-fonts-style mbr-white\" mbr-class=\"{'mbr-pt-2': showTitle || showSubtitle}\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".mbr-section-btn, .mbr-text\"><br>Website to be released soon, after the confinement I guess :)<br>#StaySafe<br></p>\n                <div mbr-buttons class=\"mbr-section-btn\" mbr-class=\"{'mbr-pt-4':showSubtitle||showTitle||showText}\" mbr-theme-style=\"display-7\" data-toolbar=\"-mbrBtnMove\" mbr-if=\"showButtons\">\n                    <a class=\"btn-primary btn\">Learn How</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rVSVi0kZbD",
+          "_anchor": "header01-0",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "background-color": "@bgColor",
+            "H2": {
+              "color": "#3a3b42"
+            },
+            ".mbr-section-subtitle": {
+              "color": "#a6a7b5"
+            }
+          },
+          "_name": "video01",
+          "_customHTML": "<section class=\"youtube1\" group=\"Images & Videos\" plugins=\"amp-main,amp-youtube\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <header>Size</header>\n            <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" value=\"4\" step=\"1\">\n            <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" value=\"4\" step=\"1\">\n            <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\" checked>\n        <!-- -->\n        <header>Title</header>\n            <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n            <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\" checked>\n            <select title=\"Align\" name=\"titleAlign\" condition=\"showTitle || showSubtitle\">\n                <option value=\"1\">Left</option>\n                <option value=\"2\" selected>Center</option>\n                <option value=\"3\">Right</option>\n            </select>\n        <!-- -->\n        <header>Video</header>\n            <input type=\"range\" inline title=\"Video Width\" name=\"videoSize\" min=\"1\" max=\"5\" value=\"5\" step=\"1\" condition=\"fullWidth == false\" required>\n            <input type=\"text\" title=\"Video URL\" name=\"videoUrl\" value=\"https://www.youtube.com/watch?v=J9ZSCZTCza8&list=PLScNdq1PcmnLZ0QUjJ7zIDtAtBsrB1i21\" required>\n        <!--  -->\n        <header>Background</header>\n            <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\" required>\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-jc-c\" mbr-class=\"{'container':!fullWidth,\n                     'container-fluid':fullWidth}\">\n        <div class=\"title-block mbr-col-sm-12 mbr-col-md-12 mbr-m-auto mbr-px-4\" mbr-class=\"{'mbr-pb-4': !fullWidth,\n                         'mbr-pt-2 mbr-pb-2':fullWidth,\n                         'align-left': titleAlign == 1,\n                         'align-center': titleAlign == 2,\n                         'align-right': titleAlign == 3}\">\n            <h2 mbr-if=\"showTitle\" class=\"mbr-section-title mbr-fonts-style mbr-white mbr-bold mbr-pb-2\" mbr-theme-style=\"display-2\">Yoga in Confinement</h2>\n            <h3 mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" class=\"mbr-section-subtitle mbr-fonts-style mbr-white\" mbr-theme-style=\"display-5\">I'll update this page with my latest <a href=\"https://www.youtube.com/playlist?list=PLScNdq1PcmnLZ0QUjJ7zIDtAtBsrB1i21\" target=\"_blank\" class=\"text-info\">\"for family &amp; friends\" yoga videos</a>. Here's my latest.<br><br></h3>\n        </div>\n        <div class=\"video-block mbr-m-auto\" mbr-class=\"{'mbr-col-md-5': videoSize == 1 && !fullWidth,\n                         'mbr-col-md-6': videoSize == 2 && !fullWidth,\n                         'mbr-col-md-7': videoSize == 3 && !fullWidth,\n                         'mbr-col-md-8': videoSize == 4 && !fullWidth,\n                         'mbr-col-md-9': videoSize == 5 && !fullWidth}\">\n            <amp-youtube class=\"mobirise-loader\" width=\"16\" height=\"9\" layout=\"responsive\" data-videoid=\"lBTCB7yLs8Y\">\n                <div placeholder class=\"placeholder\"></div>\n            </amp-youtube>\n        </div>\n        </div>\n</section>",
+          "_cid": "rVT4ycSNVE",
+          "_anchor": "video01-2",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "_styles": {
+            "padding-top": "(@paddingTop * 15px)",
+            "padding-bottom": "(@paddingBottom * 15px)",
+            "overflow": "visible",
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)",
+              ".mbr-overlay": {
+                "background-color": "@overlayColor",
+                "opacity": "@overlayOpacity"
+              }
+            },
+            "& when (@showTitle)": {
+              ".mbr-section-subtitle": {
+                "padding-top": "1rem"
+              }
+            },
+            ".btn-primary-outline": {
+              "border": "none",
+              "&:hover": {
+                "background": "transparent!important",
+                "color": "@primaryColor !important"
+              }
+            },
+            "p": {
+              "padding": "0",
+              "margin": "0"
+            },
+            ".title-wrap:hover": {
+              ".line": {
+                "width": "6rem"
+              }
+            },
+            ".title-wrap": {
+              "padding-bottom": "3rem"
+            },
+            ".fieldset > *": {
+              "width": "fit-content",
+              "margin-bottom": ".5rem",
+              "&.split-row": {
+                "display": "flex",
+                "input": {
+                  "display": "flex",
+                  "flex-basis": "50%",
+                  "flex-shrink": "1",
+                  "flex-grow": "1"
+                }
+              }
+            },
+            "input": {
+              "color": "@inputText",
+              "background": "@inputBg",
+              "padding": "15px 15px",
+              "margin": ".5rem",
+              "font-weight": "400",
+              "border": "none",
+              "font-size": "1.3rem",
+              "&::-webkit-input-placeholder": {
+                "color": "@inputText"
+              },
+              "&::-moz-placeholder": {
+                "color": "@inputText"
+              },
+              "&:-moz-placeholder": {
+                "color": "@inputText"
+              },
+              "&:-ms-input-placeholder": {
+                "color": "@inputText"
+              },
+              "&::-ms-input-placeholder": {
+                "color": "@inputText"
+              },
+              "&.datepicker::-webkit-inner-spin-button": {
+                "display": "none"
+              },
+              "&.timepicker::-webkit-inner-spin-button": {
+                "color": "@inputText"
+              }
+            },
+            ".input-group-btn": {
+              "display": "block",
+              ".btn": {
+                "margin": ".4rem .5rem"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".split-row": {
+                "flex-direction": "column",
+                "margin-bottom": "0"
+              }
+            },
+            "P": {
+              "color": "#465052"
+            }
+          },
+          "_name": "form01",
+          "_customHTML": "<section class=\"form1\" group=\"Forms\" plugins=\"amp-main, amp-form, amp-mustache\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n\n        <input type=\"color\" title=\"Input BG Color\" name=\"inputBg\" value=\"#efefef\">\n        <input type=\"color\" title=\"Input Text Color\" name=\"inputText\" value=\"#c1c1c1\">\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Background Image\" value=\"../_images/background1.jpg\">\n            <input type=\"color\" title=\"Background Color\" value=\"#ffffff\" selected> \n        </fieldset>\n\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type!='color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"bg.type!='color' && overlay\">\n        <input type=\"range\" inline title=\"Overlay Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.4\" condition=\"bg.type!='color' && overlay\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n    <div class=\"container align-center\">\n        <div class=\"title-wrap\" mbr-if=\"showTitle\">\n            <h1 class=\"mbr-section-title mbr-fonts-style mbr-gray mbr-pb-3 mbr-bold\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title, .input-group-btn, .underline\">Get in touch</h1>\n           \n        </div>\n\n        <div class=\"mbr-row mbr-jc-c\">\n            <div mbr-form class=\"mbr-col-sm-12 mbr-col-md-12 mbr-col-lg-10\">\n<!--Formbuilder Form-->\n<form action name=\"8b Form\" method=\"post\" class=\"mbr-form\">\n<div>\n<div submit-success class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12\">\n<template data-form-alert type=\"amp-mustache\">Sent. Thanks.</template>\n</div>\n<div submit-error class=\"mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12\">\n<template data-form-alert type=\"amp-mustache\">Oops, try again later.</template>\n</div>\n</div>\n<div class=\"dragArea\">\n<div class=\"mbr-col-lg-12\">\n<p mbr-theme-style=\"display-5\" class=\"mbr-fonts-style mbr-fonts-style mbr-section-subtitle mbr-fonts-style mbr-semibold\">Hello, my name is</p>\n</div>\n<div data-for=\"form[data][0][1]\" class=\"mbr-col-lg-12 fieldset\">\n<input type=\"hidden\" name=\"form[data][0][0]\" value=\"Name\">\n<input type=\"text\" name=\"form[data][0][1]\" placeholder=\"Name\" data-form-field=\"Name\" mbr-theme-style=\"display-7\" value>\n</div>\n<div class=\"mbr-col-lg-12\">\n<p mbr-theme-style=\"display-5\" class=\"mbr-fonts-style mbr-fonts-style mbr-section-subtitle mbr-fonts-style mbr-semibold\">I want to talk to you about </p>\n</div>\n<div data-for=\"form[data][1][1]\" class=\"mbr-col-lg-12 fieldset\">\n<input type=\"hidden\" name=\"form[data][1][0]\" value=\"Type\">\n<input type=\"tel\" name=\"form[data][1][1]\" placeholder=\"Type\" data-form-field=\"Type\" mbr-theme-style=\"display-7\" value>\n</div>\n<div class=\"mbr-col-lg-12\">\n<p mbr-theme-style=\"display-5\" class=\"mbr-fonts-style mbr-fonts-style mbr-section-subtitle mbr-fonts-style mbr-semibold\">and please contact me back at </p>\n</div>\n<div data-for=\"form[data][2][1]\" class=\"mbr-col-lg-12 fieldset\">\n<input type=\"hidden\" name=\"form[data][2][0]\" value=\"Email\">\n<input type=\"text\" name=\"form[data][2][1]\" placeholder=\"Email\" data-form-field=\"Email\" mbr-theme-style=\"display-7\" value>\n</div>\n<div class=\"mbr-col-lg-12\">\n<p mbr-theme-style=\"display-5\" class=\"mbr-fonts-style mbr-fonts-style mbr-section-subtitle mbr-fonts-style mbr-semibold\">Thanks!</p>\n</div>\n<div mbr-buttons=\"true\" mbr-theme-style=\"display-5\" data-toolbar=\"-mbrBtnMove,-mbrLink,-mbrBtnRemove,-mbrBtnAdd\" class=\"mbr-col-lg-12 input-group-btn mbr-pt-4 align-center\"><a type=\"submit\" class=\"btn btn-form btn-info\" data-app-placeholder=\"Type Text\">Send</a></div>\n</div>\n</form><!--Formbuilder Form-->\n</div>\n        </div>\n    </div>\n</section>",
+          "_cid": "raS07w6qof",
+          "_anchor": "form01-2d",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        }
+      ]
+    }
+  }
+}
